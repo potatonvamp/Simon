@@ -26,14 +26,22 @@ Black = DigitalInOut(board.D11)
 Black.direction = Direction.INPUT
 
 
+sequence = []
 
-sequence = [0,3]
+def blink(light):
+    light.value = not light.value
+    time.sleep(.6)
+    light.value = not light.vlue
+    time.sleep(.6)
+    
 
-def add():
-    pass
+def add_sequence():
+    sequence.append(random.randint(0,3))
     
-def game_over():
+def display_sequence(me):
+    add_sequence
     
-
-def display_sequence():
-    
+def game_start():
+    while True:
+        if White.value:
+            
