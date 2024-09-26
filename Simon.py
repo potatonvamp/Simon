@@ -41,14 +41,43 @@ white.direction = Direction.INPUT
 
 points = 0
 sequence = []
+count = 0
+game_start = False
 
 
 def blink(light):
     light.value = not light.value
-    time.sleep(.6)
+    time.sleep(.3)
     light.value = not light.value
+    time.sleep(.3)
+
+def lose():
+    global sequence
+    global game_start
+    global count
+    blue.value = True
+    red.value = True
+    yellow.value = True
+    green.value = True
     time.sleep(.6)
+    sequence[]
+    blue.value = False
+    red.value = False
+    yellow.value = False
+    green.value = False
+    game_start = False
+    time.sleep(.2)
+    score(scoring)
+    print(scoring)
     
+def score(game_score):
+    global scoring
+    score_ones = game_score % 10
+    score_tens = game_score // 10
+    for i in range(score_ones):
+        blink(red)
+    for i in range (score_tens):
+        blink(green)
 
 def add_sequence(me):
     me.append(random.randint(0,3))
@@ -70,25 +99,12 @@ def user():
         return 3
         
 def display_sequence(me):
-    for x in me:
-        if x == 0:
-            blink(blue)
-        if x == 1:
-            blink(yellow)
-        if x == 2:
-            blink(green)
-        if x == 3:
-            blink(blue)
+    
             
-def game_start():
-    white.value
+
     
 while True:
-    if not game_start and :
-        add_sequence(me)
+    if not game_start and white.value:
+        add_sequence()
         display_sequence(sequence)
         input = user()
-            
-
-
-game_start()
